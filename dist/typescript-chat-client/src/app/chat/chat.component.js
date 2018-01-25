@@ -7,8 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
+var action_1 = require("./shared/model/action");
 var ChatComponent = /** @class */ (function () {
-    function ChatComponent() {
+    function ChatComponent(socketService) {
+        this.socketService = socketService;
+        this.action = action_1.Action;
+        this.messages = [];
     }
     ChatComponent.prototype.ngOnInit = function () {
     };
