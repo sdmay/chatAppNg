@@ -12,6 +12,11 @@ export class ChatServer {
 
 
         constructor() {
+            this.createApp();
+            this.config();
+            this.createServer();
+            this.sockets();
+            this.listen();
             
         }
     private createApp(): void {
@@ -28,7 +33,7 @@ export class ChatServer {
     }
     private listen(): void {
         this.server.listen(this.port, () => {
-            console.log('Running', this.port);
+            console.log('Running on this ', this.port);
         })
     
     this.io.on('connect', (socket: any) => {
@@ -42,7 +47,7 @@ export class ChatServer {
         })
     })
 
-    }
+    }    
     public getApp(): express.Application {
         return this.app;
     }
